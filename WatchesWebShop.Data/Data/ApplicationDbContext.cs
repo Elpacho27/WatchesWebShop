@@ -23,12 +23,12 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Category>().HasData(
             new
             {
-                Id = 1,
-                Name="Sport",
-                DisplayOrder=1
+                Id = 6,
+                Name = "Comedy",
+                DisplayOrder = 1
             }
-
-            );
+          
+            ); 
     }
 
 

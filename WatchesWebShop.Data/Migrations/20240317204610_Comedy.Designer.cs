@@ -11,8 +11,8 @@ using WatchesWebShop.DataAccess.Data;
 namespace WatchesWebShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240317145233_Firstsss migrations")]
-    partial class Firstsssmigrations
+    [Migration("20240317204610_Comedy")]
+    partial class Comedy
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,9 +47,9 @@ namespace WatchesWebShop.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 6,
                             DisplayOrder = 1,
-                            Name = "Sport"
+                            Name = "Comedy"
                         });
                 });
 #pragma warning restore 612, 618
