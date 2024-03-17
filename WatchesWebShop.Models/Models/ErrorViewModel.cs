@@ -1,4 +1,4 @@
-﻿namespace WatchesWebShop.Models;
+namespace WatchesWebShop.Models.Models;
 
 public class ErrorViewModel
 {
