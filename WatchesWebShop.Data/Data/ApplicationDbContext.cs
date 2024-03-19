@@ -17,18 +17,38 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Product> Products { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>().HasData(
             new
             {
-                Id = 6,
-                Name = "Comedy",
+                Id = 1,
+                Name = "SS",
                 DisplayOrder = 1
             }
           
-            ); 
+            );
+        modelBuilder.Entity<Product>().HasData(
+
+            new
+            {
+                Id = 2,
+                Title = "SSS",
+                Description = "SS",
+                ISBN = "SS",
+                Author = "SSSS",
+                ListPrice = 20.1,
+                Price = 20.1,
+                Price50 = 20.1,
+                Price100 = 20.1
+
+        }
+            );
+        
+
+        
     }
 
 

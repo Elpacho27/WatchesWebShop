@@ -1,5 +1,4 @@
-﻿
-@model Category
+﻿@model Product
 
 
 <div class="card shadow border-0 mt-4">
@@ -7,7 +6,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="text-white py-2">
-                    Edit Category
+                    Delete Product
                 </h2>
             </div>
         </div>
@@ -17,22 +16,22 @@
             <input asp-for="Id" hidden />
             <div class="border p-3">
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="Name" class="form-control border-0 shadow" />
-                    <label asp-for="Name" class="ms-2"></label>
-                    <span asp-validation-for="Name" style="color:white !important" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="Title" class="form-control border-0 shadow" />
+                    <label asp-for="Title" class="ms-2"></label>
+                    <span asp-validation-for="Title" style="color:white !important" class="text-danger"></span>
 
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="DisplayOrder" class="form-control border-0 shadow" />
-                    <label asp-for="DisplayOrder" class="ms-2"></label>
-                    <span asp-validation-for="DisplayOrder" style="color:white !important" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="Author" class="form-control border-0 shadow" />
+                    <label asp-for="Author" class="ms-2"></label>
+                    <span asp-validation-for="Author" style="color:white !important" class="text-danger"></span>
                 </div>
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
-                        <button type="submit" class="btn btn-primary form-control"> Edit</button>
+                        <button type="submit" class="btn btn-primary form-control"> Delete</button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary border form-control">
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary border form-control">
                             Back to list
                         </a>
                     </div>
@@ -48,3 +47,4 @@
         <partial name="_ValidationScriptsPartial" />
     }
 }
+

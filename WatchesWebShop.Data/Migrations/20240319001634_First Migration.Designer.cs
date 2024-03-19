@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WatchesWebShop.DataAccess.Data;
 
@@ -10,9 +11,11 @@ using WatchesWebShop.DataAccess.Data;
 namespace WatchesWebShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240319001634_First Migration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +47,9 @@ namespace WatchesWebShop.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 6,
                             DisplayOrder = 1,
-                            Name = "SS"
+                            Name = "Comedy"
                         });
                 });
 
@@ -88,20 +91,20 @@ namespace WatchesWebShop.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
 
                     b.HasData(
                         new
                         {
-                            Id = 2,
-                            Author = "SSSS",
-                            Description = "SS",
-                            ISBN = "SS",
-                            ListPrice = 20.100000000000001,
-                            Price = 20.100000000000001,
-                            Price100 = 20.100000000000001,
-                            Price50 = 20.100000000000001,
-                            Title = "SSS"
+                            Id = 1,
+                            Author = "author",
+                            Description = "Desc",
+                            ISBN = "ISBN",
+                            ListPrice = 1.5,
+                            Price = 1.6000000000000001,
+                            Price100 = 2.1000000000000001,
+                            Price50 = 2.0,
+                            Title = "First"
                         });
                 });
 #pragma warning restore 612, 618

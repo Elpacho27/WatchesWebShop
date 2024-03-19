@@ -19,7 +19,7 @@ namespace WatchesWebShop.DataAccess.Repository
         public Repository(ApplicationDbContext context)
         {
             _context = context;
-            dbSet=context.Set<T>();
+            dbSet=_context.Set<T>();
         }
 
 
