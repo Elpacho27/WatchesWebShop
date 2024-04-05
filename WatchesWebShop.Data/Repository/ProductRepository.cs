@@ -16,11 +16,23 @@ namespace WatchesWebShop.DataAccess.Repository
         { 
             _context = context;
         }
-      
+
 
         public void Update(Product product)
         {
-           _context.Update(product);
+            var productInDb = _context.Products.FirstOrDefault(p => p.Id == product.Id);
+            if (productInDb != null)
+            {
+                productInDb.Brand = product.Brand;
+                productInDb.Series = product.Series;
+                productInDb.ModelNumber = product.ModelNumber;
+                productInDb.Price = product.Price;
+                productInDb.CategoryID = product.CategoryID;
+                if (productInDb.ImageURL != null)
+                {
+                    productInDb.ImageURL = product.ImageURL;
+                }
+            }
         }
     }
 }

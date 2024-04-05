@@ -2,7 +2,7 @@
 using WatchesWebShop.DataAccess.Repository.IRepository;
 using WatchesWebShop.Models.Models;
 
-namespace WatchesWebShop.Controllers;
+namespace WatchesWebShop.Areas.Admin.Controllers;
 
 public class CategoryController : Controller
 {
@@ -33,26 +33,26 @@ public class CategoryController : Controller
         {
             ModelState.AddModelError("Name", "Longer than 15 characters");
         }
-        if(ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             _unitOfWork.Category.Add(category);
             _unitOfWork.Save();
-            return RedirectToAction("Index","Category");
+            return RedirectToAction("Index", "Category");
         }
 
         return View();
 
     }
 
-    public IActionResult Edit(int? categoryId) 
+    public IActionResult Edit(int? categoryId)
     {
-        if (categoryId == null || categoryId==1)
+        if (categoryId == null || categoryId == 1)
         {
             return NotFound();
 
         }
 
-        Category? category=_unitOfWork.Category.Get(c=>c.Id==categoryId);
+        Category? category = _unitOfWork.Category.Get(c => c.Id == categoryId);
         if (category == null)
         {
             return NotFound();
@@ -63,28 +63,28 @@ public class CategoryController : Controller
     }
 
     [HttpPost]
-    public   IActionResult Edit(Category category) 
+    public IActionResult Edit(Category category)
     {
         if (ModelState.IsValid)
         {
             _unitOfWork.Category.Update(category);
             _unitOfWork.Save();
-            return RedirectToAction("Index","Category");
+            return RedirectToAction("Index", "Category");
         }
 
-        return View() ;
+        return View();
     }
 
     public IActionResult Delete(int? categoryId)
     {
-        if (categoryId==null || categoryId==0)
+        if (categoryId == null || categoryId == 0)
         {
             return NotFound();
 
         }
-        Category? category=_unitOfWork.Category.Get(c=> c.Id==categoryId);  
+        Category? category = _unitOfWork.Category.Get(c => c.Id == categoryId);
 
-        if(category == null)
+        if (category == null)
         {
             return NotFound();
         }
@@ -94,8 +94,8 @@ public class CategoryController : Controller
     [HttpPost, ActionName("Delete")]
     public IActionResult DeletePOST(int? categoryId)
     {
-        Category? category=_unitOfWork.Category.Get(c=> c.Id==categoryId);
-        if(category == null)
+        Category? category = _unitOfWork.Category.Get(c => c.Id == categoryId);
+        if (category == null)
         {
             return NotFound();
 
@@ -103,9 +103,9 @@ public class CategoryController : Controller
 
         _unitOfWork.Category.Delete(category);
         _unitOfWork.Save();
-        return RedirectToAction("Index","Category");
-        
-        }
+        return RedirectToAction("Index", "Category");
+
+    }
 
 
 }

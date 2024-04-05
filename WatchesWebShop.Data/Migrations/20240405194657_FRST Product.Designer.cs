@@ -11,8 +11,8 @@ using WatchesWebShop.DataAccess.Data;
 namespace WatchesWebShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240319221040_mig")]
-    partial class mig
+    [Migration("20240405194657_FRST Product")]
+    partial class FRSTProduct
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,51 +61,56 @@ namespace WatchesWebShop.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Author")
+                    b.Property<string>("Brand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ISBN")
+                    b.Property<string>("ModelNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price50")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Series")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
-                            Id = 2,
-                            Author = "SSSS",
-                            Description = "SS",
-                            ISBN = "SS",
-                            ListPrice = 20.100000000000001,
-                            Price = 20.100000000000001,
-                            Price100 = 20.100000000000001,
-                            Price50 = 20.100000000000001,
-                            Title = "SSS"
+                            Id = 1,
+                            Brand = "Casio",
+                            CategoryID = 1,
+                            ImageURL = "",
+                            ModelNumber = "5566",
+                            Price = 556.99000000000001,
+                            Series = "144-GT"
                         });
+                });
+
+            modelBuilder.Entity("WatchesWebShop.Models.Models.Product", b =>
+                {
+                    b.HasOne("WatchesWebShop.Models.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,8 +11,8 @@ using WatchesWebShop.DataAccess.Data;
 namespace WatchesWebShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240319001634_First Migration")]
-    partial class FirstMigration
+    [Migration("20240405194325_ONE")]
+    partial class ONE
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,9 +47,9 @@ namespace WatchesWebShop.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 6,
+                            Id = 1,
                             DisplayOrder = 1,
-                            Name = "Comedy"
+                            Name = "SS"
                         });
                 });
 
@@ -61,51 +61,44 @@ namespace WatchesWebShop.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Author")
+                    b.Property<string>("Brand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ISBN")
+                    b.Property<string>("ModelNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price50")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Series")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.HasIndex("CategoryID");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "author",
-                            Description = "Desc",
-                            ISBN = "ISBN",
-                            ListPrice = 1.5,
-                            Price = 1.6000000000000001,
-                            Price100 = 2.1000000000000001,
-                            Price50 = 2.0,
-                            Title = "First"
-                        });
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WatchesWebShop.Models.Models.Product", b =>
+                {
+                    b.HasOne("WatchesWebShop.Models.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

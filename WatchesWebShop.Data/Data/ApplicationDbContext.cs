@@ -28,29 +28,24 @@ public class ApplicationDbContext : DbContext
                 Name = "SS",
                 DisplayOrder = 1
             }
-          
             );
-        modelBuilder.Entity<Product>().HasData(
 
+        modelBuilder.Entity<Product>().HasData(
             new
             {
-                Id = 2,
-                Title = "SSS",
-                Description = "SS",
-                ISBN = "SS",
-                Author = "SSSS",
-                ListPrice = 20.1,
-                Price = 20.1,
-                Price50 = 20.1,
-                Price100 = 20.1
-
-        }
-            );
-        
-
-        
-    }
+                Id = 1,
+                Brand="Casio",
+                Series="144-GT",
+                ModelNumber="5566",
+                Price=556.99,
+                CategoryID=1,
+                ImageURL=""
+            }) ;
+            
+            
+    }   
+ }
 
 
 
-}
+
