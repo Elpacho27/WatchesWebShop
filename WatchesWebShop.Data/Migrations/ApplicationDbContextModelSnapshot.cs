@@ -40,13 +40,53 @@ namespace WatchesWebShop.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("WatchesWebShop.Models.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DisplayOrder = 1,
-                            Name = "SS"
+                            City = "Tokyo",
+                            Name = "Casio",
+                            PhoneNumber = "00221144",
+                            PostalCode = 151854,
+                            State = "Shibuya-ku",
+                            StreetAddress = "Hon-machi 1-chome"
                         });
                 });
 
@@ -85,18 +125,6 @@ namespace WatchesWebShop.DataAccess.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Brand = "Casio",
-                            CategoryID = 1,
-                            ImageURL = "",
-                            ModelNumber = "5566",
-                            Price = 556.99000000000001,
-                            Series = "144-GT"
-                        });
                 });
 
             modelBuilder.Entity("WatchesWebShop.Models.Models.Product", b =>

@@ -4,6 +4,7 @@ using WatchesWebShop.Models.Models;
 
 namespace WatchesWebShop.Areas.Admin.Controllers;
 
+[Area("Admin")]
 public class CategoryController : Controller
 {
 

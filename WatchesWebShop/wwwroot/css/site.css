@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.brandchooser {
+    background-color:#d3e3e3;
+    height: 50px;
+    border-radius:5px;
+    align-content:center;
+    align-items:center;
+   
+}
+
+
+

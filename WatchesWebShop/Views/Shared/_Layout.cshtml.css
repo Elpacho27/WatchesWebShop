@@ -46,3 +46,7 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.nav-item dropdown .dropdown-menu .nav-item a {
+    color:dodgerblue;
+}

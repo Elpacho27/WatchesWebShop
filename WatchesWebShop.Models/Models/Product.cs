@@ -17,7 +17,7 @@ public class Product
     public string Series { get; set; }
     public string ModelNumber { get; set; }
 
-    [Range(1D, 1000D)]
+    [Range(1D, 100000D)]
     public double Price { get; set; }
 
     public int CategoryID { get; set; }

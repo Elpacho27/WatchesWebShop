@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Numerics;
+using WatchesWebShop.DataAccess.Repository;
 using WatchesWebShop.DataAccess.Repository.IRepository;
 using WatchesWebShop.Models.Models;
 using WatchesWebShop.Models.ViewModels;
 
 namespace WatchesWebShop.Areas.Admin.Controllers;
 
+[Area("Admin")]
 public class ProductController : Controller
 {
 
@@ -115,6 +117,7 @@ public class ProductController : Controller
         return View(productViewModel);
 
     }
+
 
     #region API Calls
     [HttpGet]

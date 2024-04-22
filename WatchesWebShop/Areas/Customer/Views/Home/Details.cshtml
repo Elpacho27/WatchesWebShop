@@ -2,11 +2,11 @@
 
 <form method="post">
     <div class="card shadow border-0 mt-4">
-        <div class="card-header bg-secondary bg-gradient text-light py-4">
+        <div class="card-header bg-secondary bg-gradient text-light py-4" style="background-color:#d3e3e3 !important;">
             <div class="row">
                 <div class="col-12 text-center">
                     <h3 class="text-white text-uppercase">@Model.Brand</h3>
-                    <p class="text-white-50 fw-semibold mb-0">by @Model.Series</p>
+                    <p class="text-white-30 fw-semibold mb-0" style="color:cadetblue !important">by @Model.Series</p>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="py-3">
                 <div class="row">
                     <div class="col-6 col-md-2 offset-lg-1 pb-1">
-                        <a class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase">
+                        <a class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase" href="/Customer/Home/Index">
                             <small>Back to home</small>
                         </a>
                     </div>
@@ -26,16 +26,16 @@
                     <div class="col-12 col-lg-6 offset-lg-1">
 
                         <div class="col-12 col-md-6 pb-4">
-                            <span class="badge">@Model.Category.Name</span>
+                            <span class="badge" style="width:80px; height:40px; font-size: 16px; text-align:center; align-content:center; color:cadetblue; background-color:#d3e3e3;">@Model.Category.Name</span>
                         </div>
                         <div class="row ps-2">
-                            <h6 class="text-dark text-opacity-50 ">ISBN : @Model.ModelNumber </h6>
+                            <h6 class="text-dark text-opacity-50 ">Reference: @Model.ModelNumber </h6>
                         </div>
                         <div class="row ps-2">
                             <h6 class="text-dark text-opacity-50  pb-2">
-                                List Price:
-                                <span class="text-decoration-line-through">
-                                    @Model.Price.ToString("c")
+                                Price:
+                                <span >
+                                    @Model.Price.ToString()€
                                 </span>
                             </h6>
                         </div>
@@ -54,11 +54,11 @@
                             </div>
                         </div>
                         <div class="row text-center ps-2">
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>Price</div>
+                            <div class="p-1 col-3 col-lg-2 bg-white  fw-bold">
+                                <div style="color:#446e9c;">Price</div>
                             </div>
-                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
-                                <div>@Model.Price.ToString("c")</div>
+                            <div class="p-1 col-3 col-lg-2 bg-white text-info fw-bold">
+                                <div style="color:#446e9c;">@Model.Price.ToString()€ </div>
                             </div>
                         <div class="row pl-2 mb-3">
                             <div class="col-md-4">
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-12 col-md-6 pb-1">
                                 <button type="submit" disabled
-                                        class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold">
+                                            class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold" style="background-color:#0ec460 !important; border-color:#0ec460;">
                                     Add to Cart (Comming Soon...)
                                 </button>
                             </div>

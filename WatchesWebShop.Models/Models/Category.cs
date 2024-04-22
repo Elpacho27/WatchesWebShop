@@ -14,7 +14,7 @@ public class Category
     public int Id { get; set; }
     [MaxLength(30)]
     public string Name { get; set; }
-    [DisplayName("Display Name")]
+    [DisplayName("Display Order")]
     public int DisplayOrder {  get; set; }
 
 }

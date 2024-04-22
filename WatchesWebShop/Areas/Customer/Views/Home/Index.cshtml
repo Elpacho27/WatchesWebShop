@@ -1,14 +1,26 @@
 ﻿@model IEnumerable<Product>
 
+@{
+    var selectedBrand = ViewBag.SelectedBrand ?? "All";
+}
+
+<div class="brandchooser d-flex justify-content-between" style="background-color:white; margin-bottom:20px;">
+    <a asp-controller="Home" asp-action="Index" asp-route-type="All" class="btn btn-secondary @(selectedBrand == "All" ? "active" : "")" style="margin-left:40px; min-width:70px !important;">All</a>
+    @foreach (var brand in ViewBag.Brands)
+    {
+        <a asp-controller="Home" asp-action="Index" asp-route-type="@brand" class="btn btn-secondary @(selectedBrand == brand ? "active" : "")" style="min-width:70px !important;">@brand</a>
+    }
+</div>
+
 <div class="row pb-3">
     @foreach (var product in Model)
     {
         <div class="col-lg-3 col-sm-6">
-            <div class="row p-2">
-                <div class="col-12 p-1">
-                    <div class="card border-0 p-3 shadow-top border-5 rounded">
-                        <img src="@product.ImageURL" class="card-img-top rounded" />
-                        <div class="card-body pb-0">
+            <div class="row p-2" >
+                <div class="col-12 p-1" style="min-height: 200px; ">
+                    <div class="card  p-3 shadow-top" style="align-items:center; background-color:white !important; border-radius:0 !important;" >
+                        <img src="@product.ImageURL" class="card-img-top rounded" style="max-width:60%; height:auto;"/>
+                        <div class="card-body pb-0" >
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Brand</p>
                                 <p class="card-title text-black text-warning text-center">@product.Series</p>
@@ -16,7 +28,7 @@
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark text-opacity-75 text-uppercase text-center mb-0">
                                     Price:
-                                    <span class="text-decoration-line-through">
+                                    <span>
                                         @product.Price.ToString()€
                                     </span>
                                 </p>
@@ -24,7 +36,7 @@
                             </div>
                         </div>
                         <div>
-                            <a asp-action="Details" asp-route-productId="@product.Id" class="btn btn-primary bg-gradient border-0 form-control">
+                            <a asp-action="Details" asp-route-productId="@product.Id" class="btn btn-primary bg-gradient border-0 form-control" style="margin-top:10px !important">
                                 Details
                             </a>
                         </div>

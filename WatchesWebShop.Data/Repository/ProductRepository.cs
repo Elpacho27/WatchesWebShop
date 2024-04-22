@@ -34,5 +34,17 @@ namespace WatchesWebShop.DataAccess.Repository
                 }
             }
         }
+
+        public IEnumerable<Product> GetProductsByType(string type)
+        {
+            if (type == "All")
+            {
+                return _context.Products.ToList();
+            }
+            else
+            {
+                return _context.Products.Where(p => p.Brand == type).ToList();
+            }
+        }
     }
 }
