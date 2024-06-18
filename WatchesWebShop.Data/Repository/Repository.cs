@@ -38,26 +38,28 @@ namespace WatchesWebShop.DataAccess.Repository
             dbSet.RemoveRange(entity);
         }
 
-        public T Get(Expression<Func<T, bool>> filter,string? includeProperties=null)
+        public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
-
             if (!string.IsNullOrEmpty(includeProperties))
             {
                 foreach (var property in includeProperties
                     .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
-                    query=query.Include(property);
+                    query = query.Include(property);
                 }
             }
             return query.FirstOrDefault();
-
         }
 
-        public IEnumerable<T> GetAll(string? includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
             if (!string.IsNullOrEmpty(includeProperties))
             {
                 foreach (var property in includeProperties

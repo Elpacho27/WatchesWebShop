@@ -4912,11 +4912,11 @@ textarea.form-control-lg {
     --bs-card-box-shadow:;
     --bs-card-cap-padding-y: 0.5rem;
     --bs-card-cap-padding-x: 1rem;
-    --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+    --bs-card-cap-bg: transparent;
     --bs-card-cap-color:;
     --bs-card-height: 500px;
     --bs-card-color:;
-    --bs-card-bg: var(--bs-body-bg);
+    --bs-card-bg:transparent;
     --bs-overlay-padding: 1rem;
     --bs-card-group-margin: 0.75rem;
     position: relative;
@@ -4928,7 +4928,7 @@ textarea.form-control-lg {
     word-wrap: break-word;
     background-color: var(--bs-card-bg);
     background-clip: border-box;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
     .card > hr {
